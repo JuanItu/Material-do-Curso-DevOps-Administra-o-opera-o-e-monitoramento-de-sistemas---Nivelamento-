@@ -1,9 +1,17 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Jogo do número secreto';
+let numeroSecreto = numeroAleatorio();
 
-let paragrafo = document.querySelector('p');
-paragrafo.innerHTML = 'Escolha um numero entre 1 e 10:';
+function exibirTextoTela(tag, texto){
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
+}
+exibirTextoTela('h1', 'Jogo do numero secreto' );
+exibirTextoTela('p', 'Escolha um numero de 1 a 10');
 
 function verificarChute(){
-    console.log('O botão foi clickado!')
+    let chute = document.querySelector('input').value;
+    console.log(chute == numeroSecreto);
+}
+
+function numeroAleatorio() {
+    return parseInt(Math.random() *10 + 1);
 }
